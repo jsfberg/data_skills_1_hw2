@@ -1,11 +1,11 @@
 # PPHA 30535
-# Spring 2021
+# Spring 2022
 # Homework 2
 
 # YOUR CANVAS NAME HERE
 # YOUR GITHUB USER NAME HERE
 
-# Due date: Sunday April 18th before midnight
+# Due date: Sunday April 17th before midnight
 # Write your answers in the space between the questions, and commit/push only 
 # this file to your repo. Note that there can be a difference between giving a
 # "minimally" right answer, and a really good answer, so it can pay to put 
@@ -44,8 +44,9 @@ x = my_func()
 # "special_chars" that defaults to True.  If the function is called with the 
 # keyword argument set to False instead, then the random values chosen should
 # not include special characters.  Create a second similar keyword argument 
-# for numbers.
-  
+# for numbers. Use one of the two libraries below.
+#import random
+#from numpy import random
   
   
   
