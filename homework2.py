@@ -60,7 +60,7 @@ x = my_func()
 # Alison, none, 0, True
 # Asma, Pfizer, 1, True
 #
-# Write two methods and one function for this class:
+# Write two methods for this class, and one function:
 # The first method named "get_record", which prints out a one-sentence summary
 # of a specified person's records (e.g. Ashu has two doses of Phizer and...)
 #
