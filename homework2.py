@@ -53,20 +53,21 @@ x = my_func()
 # Question 4: Create a class that requires four arguments when an instance
 # is created: one for the person's name, one for which COVID vaccine they
 # have had, one for how many doses they've had, and one for whether they've
-# ever had COVID.  Then create instances for three people:
+# ever had COVID.  Then create instances for four people:
 #
 # Aaron, Moderna, 1, False
 # Ashu, Pfizer, 2, False
 # Alison, none, 0, True
 # Asma, Pfizer, 1, True
 #
-# Write three methods for this class:
-# The first one named "get_record", which prints out a one-sentence summary
+# Write two methods and one function for this class:
+# The first method named "get_record", which prints out a one-sentence summary
 # of a specified person's records (e.g. Ashu has two doses of Phizer and...)
 #
-# The second one named "all_data", which returns a simple list of all four
-# people's data (e.g. [name, vaccine, doses, covid], [...])
-#
-# The third one named "same_shot", which takes as an argument another person's
+# The second method named "same_shot", which takes as an argument another person's
 # record instance, and then prints whether or not the two people have the
 # same kind of vaccine or not.
+#
+# A function named "all_data", which takes any number of these instances and 
+# returns a simple list of all of their data 
+# (e.g. [name, vaccine, doses, covid], [...])
