@@ -118,11 +118,10 @@ class COVID_data():
             return self.name, "and", __init__.name , "got the same vaccine"
         else:
             return self.name, "and", __init__.name ,"got different vaccnines"
-    def all_data(self):
-        comp = []
-        for n in self.__init__():
-            comp += self 
-        return comp
+        
+def all_data(*narg):
+    comp = [[arg.name, arg.vac, arg.doses, arg.covid] for arg in narg]
+    return comp
     
 inst1 = COVID_data("Aaron", "Moderna", 1, False)
 inst2 = COVID_data("Ashu", "Pfizer", 2, False)
@@ -130,4 +129,7 @@ inst3 = COVID_data("Alison", "none", 0, True)
 inst4 = COVID_data("Asma", "Pfizer", 1, True)
 inst1.__get_record__()
 inst2.__same_shot__(inst3)
-inst4.all_data()
+all_data(inst1, inst4)
+
+# Ref: https://www.geeksforgeeks.org/args-kwargs-python/
+# Ref: https://stackoverflow.com/questions/55045982/quick-way-to-convert-all-instance-variables-in-a-class-to-a-list-python
