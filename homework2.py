@@ -13,6 +13,9 @@
 
 #############
 
+# Collaborated with Connor Christensen and Mahnoor Faisal Khan
+
+
 # Question 1: Write a function that takes two numbers as arguments, then
 # sums them together.  If the sum is greater than 10, return the string 
 # "big", if it is equal to 10, return "just right", and if it is less than
@@ -32,19 +35,22 @@ def sumvsten(a,b):
         return "small"
         
 answer = [sumvsten(tup[0],tup[1]) for tup in start_list]
+print(answer)
 
 # Question 2: The following code is fully-functional, but uses a global
 # variable and a local variable.  Re-write it to work the same, but using an
 # argument and a local variable.  Use no more than two lines of comments to
 # explain why this new way is preferable to the old way.
 
-def my_func(a):
+def my_func(a = 100):
     b = 30
     return a + b
-x = my_func()
 
-# We prefer using arguments over global variables in functions because in 
-# larger codes it is easy to lose track of global variables
+x = my_func()
+print(x)
+
+# Using (keyword) argument gives the flexibility of running a function with a 
+# default value while giving the option to configure it a certain way
 
 
 # Question 3: Write a function that can generate a random password from
@@ -102,6 +108,10 @@ password(7)
 # returns a simple list of all of their data 
 # (e.g. [name, vaccine, doses, covid], [...])
 
+pip install num2words
+
+from num2words import num2words
+
 class COVID_data():
     def __init__(self, name, vac, doses, covid):
         self.name = name
@@ -110,14 +120,14 @@ class COVID_data():
         self.covid = covid
     def __get_record__(self):
         if (self.covid == True):
-            return self.name , "has" , self.doses , "of" , self.vac , "and has had COVID" 
+            return self.name , "has" , num2words(self.doses) , "doses of" , self.vac , "vaccine, and has had COVID." 
         else:
-            return self.name , "has" , self.doses , "of" , self.vac , "and has never had COVID"
+            return self.name , "has" , num2words(self.doses) , "doses of" , self.vac , "vaccine, and has never had COVID."
     def __same_shot__(self, __init__):
         if self.vac == __init__.vac:
-            return self.name, "and", __init__.name , "got the same vaccine"
+            return (self.name, "and", __init__.name , "got the same vaccine")
         else:
-            return self.name, "and", __init__.name ,"got different vaccnines"
+            return (self.name, "and", __init__.name ,"got different vaccnines")
         
 def all_data(*narg):
     comp = [[arg.name, arg.vac, arg.doses, arg.covid] for arg in narg]
@@ -127,9 +137,13 @@ inst1 = COVID_data("Aaron", "Moderna", 1, False)
 inst2 = COVID_data("Ashu", "Pfizer", 2, False)
 inst3 = COVID_data("Alison", "none", 0, True)
 inst4 = COVID_data("Asma", "Pfizer", 1, True)
-inst1.__get_record__()
-inst2.__same_shot__(inst3)
-all_data(inst1, inst4)
+
+print(' '.join(inst2.__get_record__()))
+
+print(' '.join(inst1.__same_shot__(inst3)))
+print(' '.join(inst2.__same_shot__(inst4)))
+
+all_data(inst1, inst3, inst4)
 
 # Ref: https://www.geeksforgeeks.org/args-kwargs-python/
 # Ref: https://stackoverflow.com/questions/55045982/quick-way-to-convert-all-instance-variables-in-a-class-to-a-list-python
