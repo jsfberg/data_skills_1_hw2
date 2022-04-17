@@ -2,8 +2,8 @@
 # Spring 2022
 # Homework 2
 
-# YOUR CANVAS NAME HERE
-# YOUR GITHUB USER NAME HERE
+# RIMJHIM AGRAWAL
+# RIMJHIMCODES
 
 # Due date: Sunday April 17th before midnight
 # Write your answers in the space between the questions, and commit/push only 
@@ -22,18 +22,29 @@
 
 start_list = [(10, 0), (100, 4), (0, 0), (-15, -100), (5, 4)]
 
-
+def sumvsten(a,b):
+    n = a+b
+    if (n==10):
+        return "just right"
+    elif (n>10):
+        return "big"
+    else:
+        return "small"
+        
+answer = [sumvsten(tup[0],tup[1]) for tup in start_list]
 
 # Question 2: The following code is fully-functional, but uses a global
 # variable and a local variable.  Re-write it to work the same, but using an
 # argument and a local variable.  Use no more than two lines of comments to
 # explain why this new way is preferable to the old way.
 
-a = 10
-def my_func():
+def my_func(a):
     b = 30
     return a + b
 x = my_func()
+
+# We prefer using arguments over global variables in functions because in 
+# larger codes it is easy to lose track of global variables
 
 
 # Question 3: Write a function that can generate a random password from
@@ -48,7 +59,26 @@ x = my_func()
 #import random
 #from numpy import random
   
+import random
+import string
+
+def password(length, special_chars = True):
+    if (length<=16 and length >= 8):
+        if special_chars == True:
+            char_set = string.ascii_letters +string.digits + string.punctuation
+            pwd = ''.join(random.choice(char_set) for i in range(length))
+        else:
+            char_set = string.ascii_letters +string.digits
+            pwd = ''.join(random.choice(char_set) for i in range(length))
+    else:
+        return "Password length invalid. Try again."
+    return pwd
   
+password(9)
+password(16, special_chars=False)
+password(7)
+    
+# Ref: https://pynative.com/python-generate-random-string/
   
 # Question 4: Create a class that requires four arguments when an instance
 # is created: one for the person's name, one for which COVID vaccine they
@@ -71,3 +101,33 @@ x = my_func()
 # A function named "all_data", which takes any number of these instances and 
 # returns a simple list of all of their data 
 # (e.g. [name, vaccine, doses, covid], [...])
+
+class COVID_data():
+    def __init__(self, name, vac, doses, covid):
+        self.name = name
+        self.vac = vac
+        self.doses = doses
+        self.covid = covid
+    def __get_record__(self):
+        if (self.covid == True):
+            return self.name , "has" , self.doses , "of" , self.vac , "and has had COVID" 
+        else:
+            return self.name , "has" , self.doses , "of" , self.vac , "and has never had COVID"
+    def __same_shot__(self, __init__):
+        if self.vac == __init__.vac:
+            return self.name, "and", __init__.name , "got the same vaccine"
+        else:
+            return self.name, "and", __init__.name ,"got different vaccnines"
+    def all_data(self):
+        comp = []
+        for n in self.__init__():
+            comp += self 
+        return comp
+    
+inst1 = COVID_data("Aaron", "Moderna", 1, False)
+inst2 = COVID_data("Ashu", "Pfizer", 2, False)
+inst3 = COVID_data("Alison", "none", 0, True)
+inst4 = COVID_data("Asma", "Pfizer", 1, True)
+inst1.__get_record__()
+inst2.__same_shot__(inst3)
+inst4.all_data()
