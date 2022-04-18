@@ -42,7 +42,7 @@ print(answer)
 # argument and a local variable.  Use no more than two lines of comments to
 # explain why this new way is preferable to the old way.
 
-def my_func(a = 100):
+def my_func(a = 10):
     b = 30
     return a + b
 
@@ -108,8 +108,6 @@ password(7)
 # returns a simple list of all of their data 
 # (e.g. [name, vaccine, doses, covid], [...])
 
-pip install num2words
-
 from num2words import num2words
 
 class COVID_data():
@@ -118,30 +116,30 @@ class COVID_data():
         self.vac = vac
         self.doses = doses
         self.covid = covid
-    def __get_record__(self):
+    def get_record(self):
         if (self.covid == True):
             return self.name , "has" , num2words(self.doses) , "doses of" , self.vac , "vaccine, and has had COVID." 
         else:
             return self.name , "has" , num2words(self.doses) , "doses of" , self.vac , "vaccine, and has never had COVID."
-    def __same_shot__(self, __init__):
+    def same_shot(self, __init__):
         if self.vac == __init__.vac:
             return (self.name, "and", __init__.name , "got the same vaccine")
         else:
             return (self.name, "and", __init__.name ,"got different vaccnines")
         
 def all_data(*narg):
-    comp = [[arg.name, arg.vac, arg.doses, arg.covid] for arg in narg]
-    return comp
+    compiled = [[arg.name, arg.vac, arg.doses, arg.covid] for arg in narg]
+    return compiled
     
 inst1 = COVID_data("Aaron", "Moderna", 1, False)
 inst2 = COVID_data("Ashu", "Pfizer", 2, False)
 inst3 = COVID_data("Alison", "none", 0, True)
 inst4 = COVID_data("Asma", "Pfizer", 1, True)
 
-print(' '.join(inst2.__get_record__()))
+print(' '.join(inst2.get_record()))
 
-print(' '.join(inst1.__same_shot__(inst3)))
-print(' '.join(inst2.__same_shot__(inst4)))
+print(' '.join(inst1.same_shot(inst3)))
+print(' '.join(inst2.same_shot(inst4)))
 
 all_data(inst1, inst3, inst4)
 
