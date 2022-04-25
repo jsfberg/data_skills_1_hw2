@@ -11,6 +11,10 @@
 # "minimally" right answer, and a really good answer, so it can pay to put 
 # thought into your work.
 
+# Grader: Justin Berg
+# Grade: 100/100 pts
+# Nicely done
+
 #############
 
 # Collaborated with Connor Christensen and Mahnoor Faisal Khan
