@@ -11,6 +11,11 @@
 # "minimally" right answer, and a really good answer, so it can pay to put 
 # thought into your work.
 
+# Grader: Justin Berg
+# [-5pts] Gen: GitHub push error; we had to manually find this one as it was not pushed properly.
+# Grade: 95/100
+# Great job otherwise.
+
 #############
 
 # Collaborated with Connor Christensen and Mahnoor Faisal Khan
